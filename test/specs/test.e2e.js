@@ -1,12 +1,15 @@
 import { expect } from '@wdio/globals'
-import LoginPage from '../pageobjects/login.page.js'
-import SecurePage from '../pageobjects/secure.page.js'
+import Login from '../pageobjects/pageLogin.js'
+import Products from '../pageobjects/pageProducts.js'
 
 describe('My Login application', () => {
+    
     it('should login with valid credentials', async () => {
-        await LoginPage.open()
+        await Login.open()
 
-        await LoginPage.login('standard_user', 'secret_sauce')
-        await expect(SecurePage.inventoryPage).toBeExisting()
+        await Login.login('standard_user', 'secret_sauce')
+        await expect(Products.titleProducts).toExist()
+        await Login.logout()
+        await expect(Login.fieldUsername).toExist()
     })
 })

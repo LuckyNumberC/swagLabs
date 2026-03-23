@@ -1,10 +1,11 @@
 import { $ } from '@wdio/globals'
 import Main from './main.js';
 
-class SecurePage extends Main {
-    get inventoryPage () {
+class Products extends Main {
+    
+    get titleProducts () {
         return $('.title');
     }
 }
 
-export default new SecurePage();
+export default new Products();
