@@ -2,7 +2,7 @@ import { $ } from '@wdio/globals'
 import Main from './main.js';
 
 class Login extends Main {
-    
+
     get fieldUsername () {
         return $('#user-name');
     }
