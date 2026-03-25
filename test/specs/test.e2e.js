@@ -6,12 +6,22 @@ const listUsernames = ['standard_user', 'locked_out_user', 'problem_user', 'perf
 
 describe('My Login application', () => {
     for (let i = 0; i < listUsernames.length; i++) {
-        it(`should log in with "` + listUsernames[i] + `" and then logout`, async () => {
-            await LoginPage.open()
-            await LoginPage.login(listUsernames[i], 'secret_sauce')
-            await expect(ProductsPage.titleProducts).toExist()
-            await LoginPage.logout()
-            await expect(LoginPage.fieldUsername).toExist()
-        })
+        if (listUsernames[i] !== 'locked_out_user') {
+            it(`should log in with "` + listUsernames[i] + `" and then logout`, async () => {
+                await LoginPage.open()
+                await LoginPage.login(listUsernames[i], 'secret_sauce')
+                await expect(ProductsPage.titleProducts).toExist()
+                await ProductsPage.logout()
+                await expect(LoginPage.fieldUsername).toExist()
+            })
+        }
+        else {
+            it(`should fail to log in using "` + listUsernames[i] + `" and receive an error message`, async () => {
+                await LoginPage.open()
+                await LoginPage.login(listUsernames[i], 'secret_sauce')
+                await expect(ProductsPage.titleProducts).not.toExist()
+                await expect(LoginPage.errorLockedOutUser).toExist()
+            })
+        }
     }
 })
