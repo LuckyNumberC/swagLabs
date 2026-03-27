@@ -7,6 +7,10 @@ class ProductsPage extends Main {
         return $('.title');
     }
 
+    get buttonBurgerMenu () {
+        return $('#react-burger-menu-btn');
+    }
+
     get buttonLogout () {
         return $('#logout_sidebar_link');
     }

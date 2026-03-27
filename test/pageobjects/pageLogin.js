@@ -15,8 +15,8 @@ class LoginPage extends Main {
         return $('#login-button');
     }
 
-    get buttonBurgerMenu () {
-        return $('#react-burger-menu-btn');
+    get errorLockedOutUser () {
+        return $('[data-test="error"]');
     }
 
     async login (username, password) {
