@@ -19,6 +19,10 @@ class LoginPage extends Main {
         return $('[data-test="error"]');
     }
 
+    listUsernamesAccepted = ['standard_user', 'locked_out_user', 'problem_user', 'performance_glitch_user', 'error_user', 'visual_user'];
+
+    listUsernamesUnaccepted = [];
+
     async login (username, password) {
         await this.fieldUsername.setValue(username);
         await this.fieldPassword.setValue(password);
@@ -26,7 +30,7 @@ class LoginPage extends Main {
     }
 
     open () {
-        return super.open('login');
+        return super.open();
     }
 }
 
