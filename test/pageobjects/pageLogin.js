@@ -21,8 +21,6 @@ class LoginPage extends Main {
 
     listUsernamesAccepted = ['standard_user', 'locked_out_user', 'problem_user', 'performance_glitch_user', 'error_user', 'visual_user'];
 
-    listUsernamesUnaccepted = [];
-
     async login (username, password) {
         await this.fieldUsername.setValue(username);
         await this.fieldPassword.setValue(password);

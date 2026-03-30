@@ -22,7 +22,7 @@ describe('My Login application', () => {
         if (user !== 'locked_out_user') {
             it(`should fail to log in with "${user}" using a wrong password`, async () => {
                 await LoginPage.open()
-                await LoginPage.login(user, 'wrong_password')
+                await LoginPage.login(user, 'nasty_sauce')
                 await expect(ProductsPage.titleProducts).not.toExist()
                 await expect(LoginPage.errorLockedOutUser).toExist()
             })
